@@ -11,14 +11,15 @@ type Project = {
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const projects: Project[] = [
     {
       title: "Assistive Library Robot",
       description:
-        "Worked on Human-Robot Interaction using speech recognition and text-to-speech. Focused on improving navigation and user assistance in library environments.",
-      tech: ["AI", "NLP", "Robotics"],
-      details: "Add detailed explanation here later",
+        "Built a robot-assisted library system using conversational AI and autonomous navigation. Integrated Furhat (HRI) with TurtleBot4 (ROS2) to guide users to books through voice interaction and real-time navigation.",
+      tech: ["AI", "NLP", "ROS2", "Robotics", "Python", "Socket Programming"],
+      details: "Detailed content handled in UI",
     },
     {
       title: "Benchmarking GPT-3 for Emotion Recognition",
@@ -32,7 +33,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen bg-gradient-to-b from-black via-zinc-900 to-black text-white px-6 py-20 scroll-mt-20"
+      className="min-h-screen bg-gradient-to-b from-black via-zinc-900 to-black text-white px-6 py-55 scroll-mt-20"
     >
       <div className="max-w-6xl mx-auto">
 
@@ -72,10 +73,14 @@ export default function Projects() {
 
         {/* Modal */}
         {selectedProject && (
-          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center px-4 z-50">
-            
-            <div className="bg-gradient-to-b from-zinc-900 to-zinc-950 p-8 rounded-2xl max-w-4xl w-full border border-zinc-800 shadow-2xl relative overflow-y-auto max-h-[85vh]">
-              
+          <div
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center px-4 z-50"
+            onClick={() => setSelectedProject(null)}
+          >            
+            <div
+              className="bg-gradient-to-b from-zinc-900 to-zinc-950 p-8 rounded-2xl max-w-4xl w-full border border-zinc-800 shadow-2xl relative overflow-y-auto max-h-[85vh]"
+              onClick={(e) => e.stopPropagation()}
+            >  
               <button
                 onClick={() => setSelectedProject(null)}
                 className="absolute top-3 right-4 text-xl hover:text-gray-400"
@@ -87,8 +92,78 @@ export default function Projects() {
                 {selectedProject.title}
               </h3>
 
-              {/* DETAILS */}
-              {selectedProject.title === "Benchmarking GPT-3 for Emotion Recognition" ? (
+              {/* Assistive Robot Project */}
+              {selectedProject.title === "Assistive Library Robot" ? (
+                <div className="space-y-6 text-gray-300">
+
+                  <p>
+                    Developed a Human-Robot Interaction system to assist users in libraries using conversational AI and autonomous navigation. The system combines a Furhat social robot for interaction and a TurtleBot4 for physical guidance.
+                  </p>
+
+                  <div>
+                    <h4 className="font-semibold text-blue-400 mb-2">Architecture</h4>
+                    <ul className="list-disc list-inside space-y-1">
+                      <li>Speech input using ASR → intent classification (NLU)</li>
+                      <li>Query mapped to modules like book availability and location</li>
+                      <li>Database retrieval using MySQL</li>
+                      <li>Response generated via TTS</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-purple-400 mb-2">Furhat Robot (HRI)</h4>
+                    <ul className="list-disc list-inside space-y-1">
+                      <li>Conversational interface for library queries</li>
+                      <li>Intent-based NLP system with fallback using LLM (Gemma)</li>
+                      <li>Face detection and user engagement tracking</li>
+                      <li>Supports book search, recommendations and library info</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-blue-400 mb-2">TurtleBot4 (Navigation)</h4>
+                    <ul className="list-disc list-inside space-y-1">
+                      <li>ROS2-based autonomous navigation using SLAM</li>
+                      <li>Mapped coordinates to bookshelf locations</li>
+                      <li>Obstacle detection and path planning</li>
+                      <li>Text-to-speech guidance for users</li>
+                      <li>Auto docking after task completion</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-purple-400 mb-2">Integration</h4>
+                    <ul className="list-disc list-inside space-y-1">
+                      <li>Socket-based communication between Furhat and TurtleBot</li>
+                      <li>Furhat triggers navigation using location IDs</li>
+                      <li>End-to-end pipeline from voice query → physical guidance</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-blue-400 mb-2">Results</h4>
+                    <ul className="list-disc list-inside space-y-1">
+                      <li>Tested with real users in IIT Mandi library</li>
+                      <li>Average interaction time: 5–7 minutes</li>
+                      <li>Positive feedback on usability and informativeness</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-purple-400 mb-2">Tech Stack</h4>
+                    <p>Python, ROS2, Furhat SDK, NLP (NLU, ASR, TTS), MySQL, Socket Programming</p>
+                  </div>
+
+                  {/* Images */}
+                  <div className="space-y-4 pt-2">
+                    <img src="/pictures/furhat.png" onClick={() => setSelectedImage("/pictures/furhat.png")} className="rounded-lg border border-zinc-800 cursor-pointer hover:scale-[1.02] transition" />
+                    <img src="/pictures/turtlebot.png" onClick={() => setSelectedImage("/pictures/turtlebot.png")} className="rounded-lg border border-zinc-800 cursor-pointer hover:scale-[1.02] transition" />
+                    <img src="/pictures/system-architecture.png" onClick={() => setSelectedImage("/pictures/system-architecture.png")} className="rounded-lg border border-zinc-800 cursor-pointer hover:scale-[1.02] transition" />
+                    <img src="/pictures/setup.png" onClick={() => setSelectedImage("/pictures/setup.png")} className="rounded-lg border border-zinc-800 cursor-pointer hover:scale-[1.02] transition" />
+                  </div>
+
+                </div>
+              ) : selectedProject.title === "Benchmarking GPT-3 for Emotion Recognition" ? (
                 <div className="space-y-6 text-gray-300">
 
                   <p>
@@ -130,11 +205,12 @@ export default function Projects() {
                     <p>GPT-3, Python, NLP evaluation</p>
                   </div>
 
-                  {/* Images */}
                   <div className="space-y-4 pt-2">
-                    <img src="/pictures/emotion-flow.png" className="rounded-lg border border-zinc-800" />
-                    <img src="/pictures/emotion-results.png" className="rounded-lg border border-zinc-800" />
-                    <img src="/pictures/emotion-concept.png" className="rounded-lg border border-zinc-800" />
+                    <img src="/pictures/flow.png" onClick={() => setSelectedImage("/pictures/flow.png")} className="rounded-lg border border-zinc-800 cursor-pointer hover:scale-[1.02] transition" />
+                    <img src="/pictures/emotion-concept.png" onClick={() => setSelectedImage("/pictures/emotion-concept.png")} className="rounded-lg border border-zinc-800 cursor-pointer hover:scale-[1.02] transition" />
+                    <img src="/pictures/emotion-results-1.png" onClick={() => setSelectedImage("/pictures/emotion-results-1.png")} className="rounded-lg border border-zinc-800 cursor-pointer hover:scale-[1.02] transition" />
+                    <img src="/pictures/emotion-results-2.png" onClick={() => setSelectedImage("/pictures/emotion-results-2.png")} className="rounded-lg border border-zinc-800 cursor-pointer hover:scale-[1.02] transition" />
+                    <img src="/pictures/emotion-results-3.png" onClick={() => setSelectedImage("/pictures/emotion-results-3.png")} className="rounded-lg border border-zinc-800 cursor-pointer hover:scale-[1.02] transition" />
                   </div>
 
                 </div>
@@ -157,6 +233,20 @@ export default function Projects() {
               </div>
 
             </div>
+          </div>
+        )}
+
+        {/* Image Modal */}
+        {selectedImage && (
+          <div
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-[60]"
+            onClick={() => setSelectedImage(null)}
+          >
+            <img
+              src={selectedImage}
+              className="max-w-[90%] max-h-[90%] rounded-xl border border-zinc-700 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
           </div>
         )}
 
