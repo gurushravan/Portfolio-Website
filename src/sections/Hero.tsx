@@ -11,10 +11,6 @@ export default function Hero() {
           Hi, I'm Guru Shravan
         </h1>
 
-        {/* Role */}
-        <h2 className="text-xl md:text-2xl text-gray-400 mb-6">
-          Data Analyst
-        </h2>
 
         {/* Description */}
         <p className="max-w-2xl mx-auto text-gray-300 mb-10">
