@@ -18,7 +18,7 @@ export default function Projects() {
       title: "Assistive Library Robot",
       description:
         "Built a robot-assisted library system using conversational AI and autonomous navigation. Integrated Furhat (HRI) with TurtleBot4 (ROS2) to guide users to books through voice interaction and real-time navigation.",
-      tech: ["AI", "NLP", "ROS2", "Robotics", "Python", "Socket Programming"],
+      tech: ["AI", "NLP", "ASR", "ROS2", "Robotics", "Python", "Socket Programming"],
       details: "Detailed content handled in UI",
     },
     {
@@ -37,9 +37,14 @@ export default function Projects() {
     >
       <div className="max-w-6xl mx-auto">
 
-        <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text mb-10 text-center">
+        <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text mb-4 text-center">
           Projects
         </h2>
+
+        {/* ADDED: Instruction */}
+        <p className="text-gray-400 text-center mb-10">
+          Click on a project to view more details
+        </p>
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -47,7 +52,9 @@ export default function Projects() {
             <div
               key={index}
               onClick={() => setSelectedProject(project)}
-              className="cursor-pointer p-6 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:scale-[1.02] transition"
+              className="cursor-pointer p-6 rounded-xl bg-zinc-900/60 border border-zinc-800 
+              hover:border-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] 
+              transform hover:-translate-y-1 transition"
             >
               <h3 className="text-xl font-semibold mb-2">
                 {project.title}
@@ -67,6 +74,11 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
+
+              {/* ADDED: CTA */}
+              <p className="text-blue-400 text-sm mt-3">
+                View Details →
+              </p>
             </div>
           ))}
         </div>
