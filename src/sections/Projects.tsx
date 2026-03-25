@@ -18,20 +18,20 @@ export default function Projects() {
       title: "Assistive Library Robot",
       description:
         "Built a robot-assisted library system using conversational AI and autonomous navigation. Integrated Furhat (HRI) with TurtleBot4 (ROS2) to guide users to books through voice interaction and real-time navigation.",
-      tech: ["AI", "NLP", "ASR", "ROS2", "Robotics", "Python", "Socket Programming"],
+      tech: ["AI", "NLP", "ASR", "ROS2", "Robotics", "Python", "Socket Programming", "SQL"],
       details: "Detailed content handled in UI",
     },
     {
       title: "Benchmarking GPT-3 for Emotion Recognition",
       description:
         "Evaluated GPT models on emotion recognition tasks and compared performance with state-of-the-art models.",
-      tech: ["NLP", "Machine Learning"],
+      tech: ["NLP", "Machine Learning", "Prompt Engineering", "GPT-3"],
       details: "Detailed content handled in UI",
     },
     {
       title: "Event Management Platform",
       description:
-        "Developed a full-stack event management platform with user authentication, event booking, organizer dashboard, and QR-based ticket validation.",
+        "Developed a full-stack event management platform with user authentication, event booking, organizer dashboard and QR-based ticket validation.",
       tech: ["Next.js", "React", "PostgreSQL", "Prisma", "Tailwind CSS"],
       details: "Detailed content handled in UI",
     },
@@ -237,7 +237,7 @@ export default function Projects() {
                 <div className="space-y-6 text-gray-300">
 
                   <p>
-                    Built a full-stack event management platform that allows users to browse events, book tickets, and enables organizers to create and manage events through a dashboard.
+                    Built a full-stack event management platform that allows users to browse events, book tickets and enables organizers to create and manage events through a dashboard.
                   </p>
 
                   <div>
@@ -247,7 +247,7 @@ export default function Projects() {
                       <li>Browse and view event details</li>
                       <li>Event booking system</li>
                       <li>Organizer dashboard for event management</li>
-                      <li>Create, edit, and delete events</li>
+                      <li>Create, edit and delete events</li>
                       <li>Booking tracking</li>
                     </ul>
                   </div>
