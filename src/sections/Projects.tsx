@@ -28,6 +28,13 @@ export default function Projects() {
       tech: ["NLP", "Machine Learning"],
       details: "Detailed content handled in UI",
     },
+    {
+      title: "Event Management Platform",
+      description:
+        "Developed a full-stack event management platform with user authentication, event booking, organizer dashboard, and QR-based ticket validation.",
+      tech: ["Next.js", "React", "PostgreSQL", "Prisma", "Tailwind CSS"],
+      details: "Detailed content handled in UI",
+    },
   ];
 
   return (
@@ -226,7 +233,51 @@ export default function Projects() {
                   </div>
 
                 </div>
-              ) : (
+              ) : selectedProject.title === "Event Management Platform" ? (
+                <div className="space-y-6 text-gray-300">
+
+                  <p>
+                    Built a full-stack event management platform that allows users to browse events, book tickets, and enables organizers to create and manage events through a dashboard.
+                  </p>
+
+                  <div>
+                    <h4 className="font-semibold text-blue-400 mb-2">Core Features</h4>
+                    <ul className="list-disc list-inside space-y-1">
+                      <li>User authentication (login and signup)</li>
+                      <li>Browse and view event details</li>
+                      <li>Event booking system</li>
+                      <li>Organizer dashboard for event management</li>
+                      <li>Create, edit, and delete events</li>
+                      <li>Booking tracking</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-purple-400 mb-2">QR-Based Ticket System</h4>
+                    <ul className="list-disc list-inside space-y-1">
+                      <li>Generated QR codes for bookings</li>
+                      <li>Scanner for ticket validation</li>
+                      <li>Real-time verification</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-blue-400 mb-2">Architecture</h4>
+                    <ul className="list-disc list-inside space-y-1">
+                      <li>Next.js (App Router)</li>
+                      <li>API routes for backend</li>
+                      <li>Prisma ORM with PostgreSQL</li>
+                      <li>Server-side rendering</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-purple-400 mb-2">Tech Stack</h4>
+                    <p>Next.js, React, PostgreSQL, Prisma, Tailwind CSS</p>
+                  </div>
+
+                </div> ) :
+              (
                 <p className="text-gray-400">
                   {selectedProject.details}
                 </p>
@@ -243,7 +294,16 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
-
+                <div className="pt-4">
+                  <a
+                    href="https://github.com/gurushravan/Events-Platform-ShowUP"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-5 py-2 rounded-lg bg-zinc-800 border border-zinc-700 text-blue-400 hover:border-blue-500 hover:shadow-[0_0_10px_rgba(59,130,246,0.3)] transition"
+                  >
+                    View on GitHub →
+                  </a>
+                </div>
             </div>
           </div>
         )}
@@ -260,9 +320,11 @@ export default function Projects() {
               onClick={(e) => e.stopPropagation()}
             />
           </div>
+          
         )}
 
       </div>
+      
     </section>
   );
 }
