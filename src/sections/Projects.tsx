@@ -40,7 +40,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen bg-gradient-to-b from-black via-zinc-900 to-black text-white px-6 py-55 scroll-mt-20"
+      className="min-h-screen bg-gradient-to-b from-black via-zinc-900 to-black text-white px-6 py-20 scroll-mt-20"
     >
       <div className="max-w-6xl mx-auto">
 
